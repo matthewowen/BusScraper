@@ -1,1 +1,2 @@
 v0.1.0, 18 October 2011, -- Initial release.
+v0.1.1, 18 October 2011, -- Add 'systemid' parameter to service lookup to ensure compatibility with all systems.

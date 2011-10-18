@@ -91,19 +91,18 @@ def postcode(postcode, subdomain):
 	
 	return stop_list
 
-def service(operator, service, destination, subdomain):
+def service(operator, service, destination, subdomain, systemid):
 	"""
 	returns all the stops on a particular service as a list of dictionaries
 	"""
 
-	URL = "http://%s.acislive.com/web/public_service_stops.asp?service=%s&operatorid=%s&systemid=35&goingto=%s&showall=1&textonly=1" % (subdomain, service, operator, destination)
+	URL = "http://%s.acislive.com/web/public_service_stops.asp?service=%s&operatorid=%s&systemid=%s&goingto=%s&showall=1&textonly=1" % (subdomain, service, operator, systemid, destination)
 	soup = get_content(URL)
 
 	# remove collapsers and isolate the relevant table
 	collapsers = soup.findAll('a', {'class': 'noline'})
 	[collapser.extract() for collapser in collapsers]
-	content = soup.findAll('div',)[2]
-	table = content.find('table')
+	table = soup.find('table')
 
 	# find the stops,  create the list of dictionaries
 	stops = table.findAll('a', )
