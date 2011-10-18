@@ -1,4 +1,3 @@
-import urllib
 import httplib2
 from BeautifulSoup import BeautifulSoup
 
