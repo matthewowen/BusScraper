@@ -30,10 +30,13 @@ def stop(stop_id, subdomain):
 	for bus in buses:
 		info = {}
 		# make the destination a string
-		info['destination'] = bus.string
+		destination = bus.string
+		destination = unicode(destination)
+		info['destination'] = destination
 		# find the service name/number for each bus
 		service = bus.findPreviousSibling()
 		service = service.string
+		service = unicode(service)
 		info['service'] = service
 		# find how many minutes until it departs
 		m = bus.findNextSibling('td')
@@ -72,11 +75,14 @@ def postcode(postcode, subdomain):
 	for stop in stops:
 		info = {}
 		# make the stop a string
-		info['stop_name'] = stop.string
+		stop_name = stop.string
+		stop_name = unicode(stop_name)
+		info['stop_name'] = stop_name
 		# provide the stop id
 		s = stop['href']
 		s = s.replace('/pip/stop.asp?naptan=', '')
 		s = s.replace('&textonly=1', '')
+		s = unicode(s)
 		info['stop_id'] = s
 		# provide the distance as number
 		d = stop.findParent()
@@ -84,6 +90,7 @@ def postcode(postcode, subdomain):
 		d = d.findPreviousSibling()
 		d = d.string
 		d = d.replace(' metres', '')
+		d = unicode(d)
 		info['distance'] = d
 		# add dictionary to list
 		stop_list.append(info)
@@ -110,12 +117,15 @@ def service(operator, service, destination, subdomain, systemid):
 
 	for stop in stops:
 		info = {}
-		info['stop_name'] = stop.string
+		stop_name = stop.string
+		stop_name = unicode(stop_name)
+		info['stop_name'] = stop_name
 		# find the stop number from the href, some stops don't have numbers
 		try:
 			s = stop['href']
 			s = s.replace('/pip/stop.asp?naptan=', '')
 			s = s.replace('&pscode=1&dest=&textonly=1', '')
+			s = unicode(s)
 		except KeyError:
 			s = ''
 		info['stop_id'] = s
