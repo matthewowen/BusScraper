@@ -2,7 +2,7 @@ from distutils.core import setup
 
 setup(
     name='BusScraper',
-    version='0.2',
+    version='0.2.0',
     author='Matthew Owen',
     author_email='matthew.owen95@gmail.com',
     py_modules=['busscraper'],
