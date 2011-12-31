@@ -22,5 +22,32 @@ class testScraper(unittest.TestCase):
 		else:
 			pass
 
+	def testGetStopsForPostcode(self):
+
+		f = busscraper.postcode("ox41bz", "oxfordshire")
+
+		self.assertTrue(type(f) is list)
+
+		i = f[0]
+
+		if i:
+			self.assertTrue(type(i['stop_name']) is unicode)
+			self.assertTrue(type(i['stop_id']) is unicode)
+			self.assertTrue(type(i['distance']) is int)
+		else:
+			pass
+
+	def testGetStopsOnService(self):
+
+		f = busscraper.service("2", "5", "Blackbird+Leys", "oxfordshire", "35")
+
+		self.assertTrue(type(f) is list)
+
+		i = f[0]
+
+		if i:
+			self.assertTrue(type(i['stop_name']) is unicode)
+			self.assertTrue(type(i['stop_id']) is unicode)
+
 if __name__ == '__main__':
     unittest.main()

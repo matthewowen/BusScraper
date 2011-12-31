@@ -2,4 +2,4 @@ v0.1.0, 18 October 2011, -- Initial release.
 v0.1.1, 18 October 2011, -- Add 'systemid' parameter to service lookup to ensure compatibility with all systems.
 v0.1.2, 18 October 2011, -- Removed unnecessary dependency on urllib
 v.0.1.3, 16 November 2011, -- No more silly busscraper.busscraper
-v.0.2.0 30 December 2011, -- Consistently provide unicode, add unit tests
+v.0.2.0 30 December 2011, -- Consistently provide unicode, add unit tests. Change distance to stop to int instead of str.

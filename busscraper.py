@@ -90,7 +90,7 @@ def postcode(postcode, subdomain):
 		d = d.findPreviousSibling()
 		d = d.string
 		d = d.replace(' metres', '')
-		d = unicode(d)
+		d = int(d)
 		info['distance'] = d
 		# add dictionary to list
 		stop_list.append(info)
