@@ -31,11 +31,13 @@ def stop(stop_id, subdomain):
 		info = {}
 		# make the destination a string
 		destination = bus.string
+		destination = destination.replace('&nbsp;', '')
 		destination = unicode(destination)
 		info['destination'] = destination
 		# find the service name/number for each bus
 		service = bus.findPreviousSibling()
 		service = service.string
+		service = service.replace('&nbsp;', '')
 		service = unicode(service)
 		info['service'] = service
 		# find how many minutes until it departs
