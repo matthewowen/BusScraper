@@ -127,6 +127,7 @@ def service(operator, service, destination, subdomain, systemid):
 			s = stop['href']
 			s = s.replace('/pip/stop.asp?naptan=', '')
 			s = s.replace('&pscode=1&dest=&textonly=1', '')
+			s = s.partition('&')[0]
 			s = unicode(s)
 		except KeyError:
 			s = ''
